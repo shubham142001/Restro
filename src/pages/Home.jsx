@@ -7,6 +7,9 @@ import Steps from '../components/Steps'
 import Counter from '../components/Counter'
 
 function Home() {
+
+    console.log("Welcome")
+
     return (
         <div className='relative'>
             <Head />

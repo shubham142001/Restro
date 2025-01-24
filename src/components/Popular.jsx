@@ -3,8 +3,8 @@ import Popular1 from '../assets/Pop1.jpg';
 import Popular2 from '../assets/Pop2.jpg';
 import Popular3 from '../assets/Pop3.jpg';
 import Popular4 from '../assets/Pop4.jpg';
-import Popular5 from '../assets/Pop5.jpg';
-import Popular6 from '../assets/Pop6.jpg';
+import Popular5 from '../assets/pop5.jpg';
+import Popular6 from '../assets/pop6.jpg';
 
 import { IoStarSharp } from 'react-icons/io5';
 

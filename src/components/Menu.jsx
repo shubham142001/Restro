@@ -5,16 +5,16 @@ import Popular3 from '../assets/Pop3.jpg';
 import Popular4 from '../assets/Pop4.jpg';
 import Popular5 from '../assets/pop5.jpg';
 import Popular6 from '../assets/pop6.jpg';
-import Menu1 from '../assets/Menu1.jpg'
-import Menu2 from '../assets/Menu2.jpg'
-import Menu3 from '../assets/Menu3.jpg'
-import Menu4 from '../assets/Menu4.jpeg'
-import Menu5 from '../assets/Menu5.jpg'
+import Menu1 from '../assets/menu1.jpg'
+import Menu2 from '../assets/menu2.jpg'
+import Menu3 from '../assets/menu3.jpg'
+import Menu4 from '../assets/menu4.jpeg'
+import Menu5 from '../assets/menu5.jpg'
 import Menu6 from '../assets/Menu6.jpg'
-import Menu7 from '../assets/Menu7.jpeg'
+import Menu7 from '../assets/menu7.jpeg'
 import Menu8 from '../assets/Menu8.jpg'
-import Menu9 from '../assets/Menu9.jpeg'
-import Menu10 from '../assets/Menu10.jpg'
+import Menu9 from '../assets/menu9.jpeg'
+import Menu10 from '../assets/menu10.jpg'
 
 function Menu() {
     const data = [

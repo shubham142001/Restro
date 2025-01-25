@@ -49,8 +49,8 @@ function Navbar() {
 
     return (
         <>
-            <div className='sticky top-0 z-10 overflow-hidden bg-white select-none flex-shrink-0 xl:h-20 lg:h-20 md:w-auto lg:pt-2'>
-                <div className=' p-0 flex justify-between px-20 items-center md:h-20 lg:h-16 flex-shrink-0 lg:gap-4 md:gap-6 '>
+            <div className='sticky top-0 z-10 overflow-hidden bg-white select-none flex-shrink-0 xl:h-20 lg:h-20 md:w-auto lg:pt-2 md:h-24'>
+                <div className=' lg:p-0 flex justify-between lg:px-20 md:px-10 items-center md:h-20 lg:h-16 flex-shrink-0 lg:gap-4 md:gap-6 '>
                     <img src={logo} alt="" className='xl:h-18 xl:w-18 md:h-12 md:w-12 ' />
                     <h1 className='text-4xl font-semibold xl:ml-[-30px] bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent md:text-2xl md:ml-[-20px]'>Flavourest</h1>
                     <input type="text" placeholder='Search Your Food' className='border xl:h-[50px] xl:w-[500px] rounded-3xl pl-4 outline-none bg-white md:h-[40px] lg:w-[500px] md:w-[220px]'/>      

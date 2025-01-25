@@ -10,19 +10,19 @@ function Cart() {
   const [count, setCount] = useState(0)
 
     const increment = () => {
-      setCount(prevCount => prevCount + 1); // Increase count by 1
+      setCount(prevCount => prevCount + 1);
     };
 
     const decrement = () => {
       if (count > 0) {
-        setCount(prevCount => prevCount - 1); // Decrease count by 1 only if greater than 0
+        setCount(prevCount => prevCount - 1);
       }
     };
 
   return (
     <>
-      <div className='select-none h-[450px] w-[95%] m-auto rounded-2xl my-10 shadow-2xl flex justify-center items-center flex-col'>
-        <div className=' w-[95%] h-[360px]  overflow-hidden p-3 flex '>
+      <div className='select-none xl:h-[450px] lg:h-[850px] w-[95%] m-auto rounded-2xl my-10 shadow-2xl flex justify-center items-center flex-col'>
+        <div className=' w-[95%] xl:h-[360px] lg:h-[700px] overflow-hidden p-3 flex '>
           <div className=' h-16 w-[100%] flex justify-between px-16 items-center border-b-2 border-gray-500'>
             <div className='flex justify-center items-center gap-8'>
             <img src={Image} alt="" className='h-14 w-14 rounded-full' />

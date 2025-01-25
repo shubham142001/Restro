@@ -49,26 +49,25 @@ function Navbar() {
 
     return (
         <>
-            <div className='sticky top-0 z-10 overflow-hidden bg-white select-none'>
-                <div className=' p-0 flex justify-between px-20 items-center  h-20 '>
-                    <img src={logo} alt="" className='h-20 w-20 ' />
-                    <h1 className='text-4xl font-semibold ml-[-30px] bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent'>Flavourest</h1>
-
-                    <input type="text" placeholder='Search Your Food' className='border h-[50px] w-[500px] rounded-3xl pl-4 outline-none bg-white' />
-                    <div className='flex gap-5 w-auto'>
+            <div className='sticky top-0 z-10 overflow-hidden bg-white select-none flex-shrink-0 xl:h-20 lg:h-20 md:w-auto lg:pt-2'>
+                <div className=' p-0 flex justify-between px-20 items-center md:h-20 lg:h-16 flex-shrink-0 lg:gap-4 md:gap-6 '>
+                    <img src={logo} alt="" className='xl:h-18 xl:w-18 md:h-12 md:w-12 ' />
+                    <h1 className='text-4xl font-semibold xl:ml-[-30px] bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent md:text-2xl md:ml-[-20px]'>Flavourest</h1>
+                    <input type="text" placeholder='Search Your Food' className='border xl:h-[50px] xl:w-[500px] rounded-3xl pl-4 outline-none bg-white md:h-[40px] lg:w-[500px] md:w-[220px]'/>      
+                    <div className='flex gap-5  justify-center flex-shrink-0'>
                         <Link to="/"><h1 className='text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent'>Home</h1></Link>
                         <Link to="/Menu"><h1 className='text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent'>Menu</h1></Link>
                         <Link to="/Contactus1"><h1 className='text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent'>Contact</h1></Link>
                     </div>
-                    <Link to="/CartPage"><div className='text-gray-700 hover:text-green-500'>
+                    <Link to="/CartPage"><div className='text-gray-700 hover:text-green-500 w-10 flex justify-center flex-shrink-0'>
                         <FaShoppingCart size={25} className='hover:cursor-pointer transition-all duration-500 ' />
                     </div></Link>
 
-                    <div className=' hover:cursor-pointer ' onMouseEnter={() => setIconSize(50)}
+                    <div className=' hover:cursor-pointer flex-shrink-0 justify-center items-center flex' onMouseEnter={() => setIconSize(50)}
                         onMouseLeave={() => setIconSize(40)}
                     >
                         <div className='flex gap-1 items-center text-gray-700 hover:text-green-500 '>
-                            <div onClick={handleOpen} className='flex'>
+                            <div onClick={handleOpen} className='flex gap-1'>
                                 <div className='' >
                                     <h2 className='text-lg font-bold transition-all duration-700'>Hello</h2>
                                     <p className='font-semi-bold text-md '>Shubham</p>
@@ -81,8 +80,8 @@ function Navbar() {
                     </div>
                 </div>
             </div>
-            <div className='bg-black bg-opacity-35 h-[800px] w-full border overflow-hidden mt-[-85px] z-20 fixed select-none' ref={backgroundRef} >
-                <div className='bg-white h-full w-[30%] float-right flex flex-col pt-10 transition-all mt-[-10px] overflow-hidden' style={{
+            <div className='bg-black bg-opacity-35 xl:h-[800px] lg:h-full w-full border overflow-hidden mt-[-85px] z-20 fixed select-none' ref={backgroundRef} >
+                <div className='bg-white xl:h-full xl:w-[30%] lg:w-[40%] float-right flex flex-col pt-10 transition-all mt-[-10px] overflow-hidden' style={{
                     transform: `translatex(${count}px)`,
                     transition: '0.8s ease'
                 }}>

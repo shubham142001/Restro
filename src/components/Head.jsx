@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 function Head() {
   return (
     <>
-      <div className=' h-[400px] flex justify-evenly px-[80px] select-none'>
-        <div className='w-[60%]'>
-          <div className='w-[800px] p-[50px]'>
+      <div className=' h-[400px] flex justify-evenly px-[80px] select-none xl:pt-0 lg:py-10'>
+        <div className='xl:w-[60%] lg:w-[60%]'>
+          <div className='xl:w-[800px] xl:p-[50px] lg:w-[500px] lg:pt-5'>
             <div className='head '><h1 className='text-8xl text-sky-600 py-5'>Find<span className='text-green-600'>Your</span></h1></div>
             <h3 className='text-4xl '>Favourite Food</h3>
             <br />

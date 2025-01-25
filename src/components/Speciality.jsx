@@ -29,11 +29,11 @@ function Speciality() {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 pl-24 justify-between items-center pb-10 select-none">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 xl:pl-24 lg:pl-8 justify-evenly items-center pb-10 select-none">
       {data.map((item, index) => (
         <div
           key={item.id}
-          className="relative h-[300px] w-[300px]  rounded-2xl overflow-hidden cursor-pointer  "
+          className="relative xl:h-[300px] xl:w-[300px] lg:h-[280px] lg:w-[280px] rounded-2xl overflow-hidden cursor-pointer"
           onMouseEnter={() => handleMouseEnter(index)}
           onMouseLeave={handleMouseLeave}
         >

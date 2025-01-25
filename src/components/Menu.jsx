@@ -35,7 +35,7 @@ function Menu() {
     ]
     return (
         <>
-            <div className='bg-gray-100 py-3 h-[780px] flex gap-3 select-none'>
+            <div className='bg-gray-100 py-3 xl:h-[780px] flex gap-3 select-none'>
                 <div className='w-[10%] h-[730px] overflow-y-scroll scrollbar-none  flex-col pt-3 mt-1 rounded-2xl'>
                     <ul className='flex flex-col pl-3 gap-3'>
                         {data.map((data) => (
@@ -44,11 +44,11 @@ function Menu() {
                         ))}
                     </ul>
                 </div>
-                <div className='bg-white w-[88%] h-[730px] m-auto rounded-3xl overflow-y-scroll scrollbar-none pt-3 grid grid-cols-4 gap-10 pl-8 pr-12'>
+                <div className='bg-white w-[88%] xl:h-[730px] lg:h-[750px] m-auto rounded-3xl overflow-y-scroll scrollbar-none pt-3 grid xl:grid-cols-4  lg:grid-cols-3 xl:gap-10  lg:gap-12 pl-8 pr-12'>
                     {
                         img.map((img) => (
                             <div className='h-[330px] w-[250px]  rounded-3xl pt-3 flex border bg-gray-100  flex-col items-center px-2  m-auto '>
-                                <img src={Popular1} alt="" className='h-[150px] w-[210px] rounded-2xl ' />
+                                <img src={img} alt="" className='h-[150px] w-[210px] rounded-2xl ' />
                                 <div className='flex flex-col justify-center items-center text-center pt-2 font-medium text-gray-950 gap-2'>
                                     <h1 className='font-extrabold text-2xl '>Tasty Burger</h1>
                                     <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit</h2>

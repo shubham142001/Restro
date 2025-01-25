@@ -113,7 +113,7 @@ function Navbar() {
                                         <input type="text" placeholder='OTP' required className='border h-[40px] w-[100px] rounded-xl pl-4 outline-none bg-white m-auto mr-5' />
                                         <button type="submit" className="text-white h-[40px] w-[90px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto ">Send OTP</button>
                                     </div>
-                                    <button type="submit" className="text-white  w-[300px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto ">Login</button>
+                                    <button type="submit" className="text-white  w-[300px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto ">SignUp</button>
                                 </form>
                             </div>
                         </div>

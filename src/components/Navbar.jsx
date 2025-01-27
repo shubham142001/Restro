@@ -6,6 +6,11 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Login from '../assets/login.gif'
+import { FaHome } from "react-icons/fa";
+import { MdRestaurantMenu } from "react-icons/md";
+import { IoMdContacts } from "react-icons/io";
+
+
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +18,7 @@ function Navbar() {
     const [count, setCount] = useState(0);
     const backgroundRef = useRef(null);
     const [counter, setCounter] = useState(0);
+    const [down,setDown] = useState(false);
 
     useEffect(() => {
         backgroundRef.current.style.display = "none";
@@ -50,10 +56,10 @@ function Navbar() {
 
     return (
         <>
-            <div className='sticky top-0 z-10 overflow-hidden bg-white select-none flex-shrink-0 xl:h-20 lg:h-20 w-auto lg:pt-2 md:h-24 sm:h-18 sm:pt-6 h-16 '>
+            <div className='sticky top-0 z-10 overflow-hidden bg-white select-none flex-shrink-0 xl:h-20 lg:h-20 w-auto lg:pt-2 md:h-24 sm:h-18 sm:pt-6 h-14 '>
                 <div className=' lg:p-0 flex justify-between lg:px-20 md:px-10 items-center md:h-20 lg:h-16 sm:px-2 flex-shrink-0 lg:gap-4 md:gap-6 sm:gap-2 px-2 py-2 sm:py-0'>
                     <img src={logo} alt="" className='xl:h-18 xl:w-18 md:h-12 md:w-12 sm:h-12 sm:w-12 h-10 w-10' />
-                    <h1 className='lg-text-4xl font-semibold xl:ml-[-30px] bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent md:text-2xl md:ml-[-20px] sm:md:ml-[-20px] sm:text-xl text-xl'>Flavourest</h1>
+                    <h1 className='lg-text-4xl font-semibold xl:ml-[-30px] bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent md:text-2xl md:ml-[-20px] sm:md:ml-[-20px] sm:text-xl text-2xl '>Flavourest</h1>
                     <input type="text" placeholder='Search Your Food' className='border xl:h-[50px] xl:w-[500px] rounded-3xl sm:pl-4 pl-3 outline-none bg-white md:h-[40px] lg:w-[500px] md:w-[220px] sm:w-[200px] sm:h-[40px] h-[35px]' />
                     <div className='sm:flex md:gap-5  justify-center flex-shrink-0 sm:gap-3  hidden'>
 
@@ -66,7 +72,7 @@ function Navbar() {
                         <FaShoppingCart size={25} className='hover:cursor-pointer transition-all duration-500 ' />
                     </div></Link>
 
-                    <div className='text-black hover:text-green-500 justify-center flex-shrink-0 sm:hidden'>
+                    <div className='text-black hover:text-green-500 justify-center flex-shrink-0 sm:hidden'  onClick={() => setDown(!down)}>
                         <RxDropdownMenu size={30} className='hover:cursor-pointer transition-all duration-500 ' />
                     </div>
 
@@ -94,12 +100,38 @@ function Navbar() {
                     </div>
                 </div>
             </div>
-            <div className='bg-black bg-opacity-35 xl:h-[800px] sm:w-full md:h-full border overflow-hidden mt-[-85px] z-20 fixed select-none ' ref={backgroundRef} >
-                <div className='bg-white xl:h-full xl:w-[30%] lg:w-[40%] md:w-[410px] sm:w-[410px] overflow-x-hidden float-right flex flex-col pt-10 transition-all mt-[-10px] overflow-hidden' style={{
+            <div
+                className=" w-full rounded-br-xl rounded-bl-2xl text-black text-lg bg-slate-100 overflow-hidden transition-all "
+                style={{
+                    maxHeight: down ? "500px" : "0px" , // Smooth height transition
+                    transition: "max-height 0.8s ease", 
+                }}
+            >
+                <ul className="flex flex-col px-5 py-2 space-y-4">
+                    <Link to="/">
+                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 border-b-2 border-white">
+                            <FaHome /> Home
+                        </li>
+                    </Link>
+                    <Link to="/Menu">
+                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 border-b-2 border-white">
+                            <MdRestaurantMenu /> Menu
+                        </li>
+                    </Link>
+                    <Link to="/Contactus1">
+                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2">
+                            <IoMdContacts /> Contact us
+                        </li>
+                    </Link>
+                </ul>
+            </div>
+
+            <div className='bg-black bg-opacity-35 xl:h-[800px] sm:w-full md:h-full border overflow-hidden mt-[-85px] z-20 fixed select-none h-[1000px] ' ref={backgroundRef} >
+                <div className='bg-white xl:h-full xl:w-[30%] lg:w-[40%] md:w-[410px] sm:w-[410px] overflow-x-hidden float-right flex flex-col pt-10 transition-all mt-[-10px] overflow-hidden  sm:h-full h-full' style={{
                     transform: `translatex(${count}px)`,
                     transition: '0.8s ease'
                 }}>
-                    <IoMdClose size={30} className='ml-5 cursor-pointer' onClick={handleClose} />
+                    <IoMdClose size={30} className='ml-5 cursor-pointer mt-11 sm:mt-0' onClick={handleClose} />
                     <div className="gap-10 ">
                         <div className='flex ' style={{
                             transform: `translatex(${counter}px)`,
@@ -107,34 +139,34 @@ function Navbar() {
                         }}>
                             <div >
                                 {/* Login Form */}
-                                <form action="" className='flex flex-col gap-6 md:w-[410px] sm:w-[410px] items-center w-[410px] h-[410px]'>
-                                    <h1 className='text-3xl font-semibold mb-3 text-gray-700'>Login</h1>
+                                <form action="" className='flex flex-col gap-6 md:w-[410px] sm:w-[410px] items-center w-[400px] h-[410px] '>
+                                    <h1 className='text-3xl font-semibold sm:mb-3 mb-5 text-gray-700'>Login</h1>
                                     <h1 className='font-medium text-lg text-red-500 cursor-pointer hover:underline hover:text-red-600 mt-[-30px] mb-5' onClick={(() => setCounter(-410))}>Create an account</h1>
-                                    <input type="text" placeholder='Phone number' required className='border h-[50px] w-[300px] rounded-xl pl-4 outline-none bg-white m-auto' />
-                                    <input type="text" placeholder='Password' required className='border h-[50px] w-[300px] rounded-xl pl-4 outline-none bg-white m-auto' />
-                                    <button type="submit" className="text-white  w-[300px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto ">Login</button>
+                                    <input type="text" placeholder='Phone number' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto' />
+                                    <input type="text" placeholder='Password' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto' />
+                                    <button type="submit" className="text-white sm:w-[300px] w-[350px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto ">Login</button>
                                 </form>
                             </div>
-                            <div className='mt-[-15px] sm:pl-16 md:pl-0'>
+                            <div className='mt-[-15px] sm:pl-16 md:pl-0  w-[400px] '>
                                 {/* Create Account */}
-                                <form action="" className='flex flex-col gap-2 md:w-[410px] items-center'>
-                                    <h1 className='text-3xl font-semibold mb-7 text-gray-700 '>Sign Up</h1>
-                                    <h1 className='font-medium text-lg text-red-500 cursor-pointer hover:underline hover:text-red-600 mt-[-30px] mb-5' onClick={(() => setCounter(0))}>Login to your Account</h1>
-                                    <input type="text" placeholder='Name' required className='border h-[50px] w-[300px] rounded-xl pl-4 outline-none bg-white m-auto' />
-                                    <input type="text" placeholder='Phone number' required className='border h-[50px] w-[300px] rounded-xl pl-4 outline-none bg-white m-auto' />
-                                    <input type="text" placeholder='Password' required className='border h-[50px] w-[300px] rounded-xl pl-4 outline-none bg-white m-auto' />
-                                    <div className='w-[300px]'>
-                                        <input type="text" placeholder='OTP' required className='border h-[40px] w-[100px] rounded-xl pl-4 outline-none bg-white m-auto mr-5' />
+                                <form action="" className='flex flex-col gap-2 md:w-[410px] items-center pl-8 sm:pl-0'>
+                                    <h1 className='text-3xl font-semibold sm:mb-7 text-gray-700 mt-5 sm:mt-0 mb-9'>Sign Up</h1>
+                                    <h1 className='font-medium text-lg text-red-500 cursor-pointer hover:underline hover:text-red-600 mt-[-30px] sm:mb-5 mb-7' onClick={(() => setCounter(0))}>Login to your Account</h1>
+                                    <input type="text" placeholder='Name' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto' />
+                                    <input type="text" placeholder='Phone number' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto' />
+                                    <input type="text" placeholder='Password' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto' />
+                                    <div className='w-[350px] sm:w-[300px]'>
+                                        <input type="text" placeholder='OTP' required className='border h-[40px] sm:w-[100px] w-[150px] rounded-xl pl-4 outline-none bg-white m-auto mr-5' />
                                         <button type="submit" className="text-white h-[40px] w-[90px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto ">Send OTP</button>
                                     </div>
-                                    <button type="submit" className="text-white  w-[300px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto ">SignUp</button>
+                                    <button type="submit" className="text-white  sm:w-[300px] w-[350px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto ">SignUp</button>
                                 </form>
                             </div>
                         </div>
 
                     </div>
-                    <div className='h-[250px] overflow-hidden flex items-end justify-center mt-[-20px]'>
-                        <img src={Login} className='h-[250px] ' />
+                    <div className='h-[250px] overflow-hidden flex items-end sm:justify-center mt-[-20px]'>
+                        <img src={Login} className='h-[250px] ml-4 sm:ml-0' />
                     </div>
                 </div>
             </div>

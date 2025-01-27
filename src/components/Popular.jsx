@@ -57,7 +57,7 @@ function Popular() {
       <div className='grid lg:grid-cols-3 sm:grid-cols-2 px-0 select-none sm:pl-4'>
         {data.map((data) => (
           <div key={data.id} className="xl:h-[400px] xl:w-[350px] md:h-[370px] md:w-[300px] bg-gray-100 border-8 rounded-2xl shadow-lg m-auto mb-20 sm:h-[320px] sm:w-[250px]">
-            <div className="xl:h-[150px] xl:w-[300px] lg:h-[130px] lg:w-[250px] md:h-[150px] md:w-[300px] sm:h-[150px] sm:w-[300px] pt-4 flex m-auto sm:pl-4">
+            <div className="xl:h-[150px] xl:w-[300px] lg:h-[130px] lg:w-[250px] md:h-[150px] md:w-[300px] sm:h-[150px] sm:w-[300px] pt-4 flex m-auto sm:pl-2">
               <img
                 className="xl:h-[200px] xl:w-[300px] lg:h-[180px] lg:w-[250px] md:h-[180px] md:w-[270px] sm:h-[150px] sm:w-[200px] object-cover rounded-lg overflow-hidden "
                 src={data.image}
@@ -65,7 +65,7 @@ function Popular() {
               />
             </div>
 
-            <div className=" text-center  md:h-[220px] items-center flex flex-col justify-center md:pt-20 gap-2 sm:h-[170px]">
+            <div className=" text-center  md:h-[220px] items-center flex flex-col justify-center md:pt-20 gap-2 sm:h-[170px] sm:mt-[-20px] lg:mt-0">
               <h1 className="md:text-2xl md:font-semibold sm:text-xl sm:font-bold">{data.name}</h1>
               <div className="flex justify-center text-2xl" >
                 <div className='text-yellow-400 flex'>{data.stars1}</div>

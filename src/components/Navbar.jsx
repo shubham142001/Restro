@@ -50,7 +50,7 @@ function Navbar() {
 
     return (
         <>
-            <div className='sticky top-0 z-10 overflow-hidden bg-white select-none flex-shrink-0 xl:h-20 lg:h-20 w-auto lg:pt-2 md:h-24 sm:h-18 sm:pt-6 h-12 '>
+            <div className='sticky top-0 z-10 overflow-hidden bg-white select-none flex-shrink-0 xl:h-20 lg:h-20 w-auto lg:pt-2 md:h-24 sm:h-18 sm:pt-6 h-16 '>
                 <div className=' lg:p-0 flex justify-between lg:px-20 md:px-10 items-center md:h-20 lg:h-16 sm:px-2 flex-shrink-0 lg:gap-4 md:gap-6 sm:gap-2 px-2 py-2 sm:py-0'>
                     <img src={logo} alt="" className='xl:h-18 xl:w-18 md:h-12 md:w-12 sm:h-12 sm:w-12 h-10 w-10' />
                     <h1 className='lg-text-4xl font-semibold xl:ml-[-30px] bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent md:text-2xl md:ml-[-20px] sm:md:ml-[-20px] sm:text-xl text-xl'>Flavourest</h1>

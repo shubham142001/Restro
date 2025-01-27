@@ -109,17 +109,17 @@ function Navbar() {
             >
                 <ul className="flex flex-col px-5 py-2 space-y-4">
                     <Link to="/">
-                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 border-b-2 border-white">
+                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 border-b-2 border-white" onClick={()=>setDown(false)}>
                             <FaHome /> Home
                         </li>
                     </Link>
                     <Link to="/Menu">
-                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 border-b-2 border-white">
+                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 border-b-2 border-white" onClick={()=>setDown(false)}>
                             <MdRestaurantMenu /> Menu
                         </li>
                     </Link>
                     <Link to="/Contactus1">
-                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2">
+                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2"  onClick={()=>setDown(false)}>
                             <IoMdContacts /> Contact us
                         </li>
                     </Link>

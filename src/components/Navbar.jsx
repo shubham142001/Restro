@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { useMediaQuery } from '@mui/material';
+import { RxDropdownMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 import logo from '../assets/logo.png'
 import { FaShoppingCart } from "react-icons/fa";
@@ -50,31 +50,44 @@ function Navbar() {
 
     return (
         <>
-            <div className='sticky top-0 z-10 overflow-hidden bg-slate-900 select-none flex-shrink-0 xl:h-20 lg:h-20 w-auto lg:pt-2 md:h-24 sm:h-18 sm:pt-6 '>
-                <div className=' lg:p-0 flex justify-between lg:px-20 md:px-10 items-center md:h-20 lg:h-16 sm:px-2 flex-shrink-0 lg:gap-4 md:gap-6 sm:gap-2'>
+            <div className='sticky top-0 z-10 overflow-hidden bg-white select-none flex-shrink-0 xl:h-20 lg:h-20 w-auto lg:pt-2 md:h-24 sm:h-18 sm:pt-6 h-12 '>
+                <div className=' lg:p-0 flex justify-between lg:px-20 md:px-10 items-center md:h-20 lg:h-16 sm:px-2 flex-shrink-0 lg:gap-4 md:gap-6 sm:gap-2 px-2 py-2 sm:py-0'>
                     <img src={logo} alt="" className='xl:h-18 xl:w-18 md:h-12 md:w-12 sm:h-12 sm:w-12 h-10 w-10' />
-                    <h1 className='text-4xl font-semibold xl:ml-[-30px] bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent md:text-2xl md:ml-[-20px] sm:md:ml-[-20px] sm:text-xl sm:block hidden'>Flavourest</h1>
-                    <input type="text" placeholder='Search Your Food' className='border xl:h-[50px] xl:w-[500px] rounded-3xl pl-4 outline-none bg-white md:h-[40px] lg:w-[500px] md:w-[220px] sm:w-[200px] sm:h-[40px]' />
-                    <div className='flex md:gap-5  justify-center flex-shrink-0 sm:gap-3'>
+                    <h1 className='lg-text-4xl font-semibold xl:ml-[-30px] bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent md:text-2xl md:ml-[-20px] sm:md:ml-[-20px] sm:text-xl text-xl'>Flavourest</h1>
+                    <input type="text" placeholder='Search Your Food' className='border xl:h-[50px] xl:w-[500px] rounded-3xl sm:pl-4 pl-3 outline-none bg-white md:h-[40px] lg:w-[500px] md:w-[220px] sm:w-[200px] sm:h-[40px] h-[35px]' />
+                    <div className='sm:flex md:gap-5  justify-center flex-shrink-0 sm:gap-3  hidden'>
+
                         <Link to="/"><h1 className='md:text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent sm:text-lg'>Home</h1></Link>
                         <Link to="/Menu"><h1 className='text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent sm:text-lg'>Menu</h1></Link>
                         <Link to="/Contactus1"><h1 className='text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent sm:text-lg'>Contact</h1></Link>
                     </div>
-                    <Link to="/CartPage"><div className='text-gray-700 hover:text-green-500 w-10 flex justify-center flex-shrink-0'>
+
+                    <Link to="/CartPage"><div className='text-black hover:text-green-500 w-10 sm:flex justify-center flex-shrink-0 hidden'>
                         <FaShoppingCart size={25} className='hover:cursor-pointer transition-all duration-500 ' />
                     </div></Link>
+
+                    <div className='text-black hover:text-green-500 justify-center flex-shrink-0 sm:hidden'>
+                        <RxDropdownMenu size={30} className='hover:cursor-pointer transition-all duration-500 ' />
+                    </div>
 
                     <div className=' hover:cursor-pointer flex-shrink-0 justify-center items-center flex' onMouseEnter={() => setIconSize(50)}
                         onMouseLeave={() => setIconSize(40)}
                     >
-                        <div className='flex gap-1 items-center text-gray-700 hover:text-green-500 '>
+                        <div className='flex gap-1 items-center text-black hover:text-green-500 '>
+
                             <div onClick={handleOpen} className='flex md:gap-1'>
-                                <div className='' >
+                                <div className='sm:block hidden' >
                                     <h2 className='md:text-lg md:font-bold transition-all duration-700 sm:font-semibold'>Hello</h2>
                                     <p className='font-semi-bold text-md '>Shubham</p>
                                 </div >
+
                                 <FaUserCircle size={iconSize}
                                     style={{ transition: 'all 0.3s ease' }}
+                                    className='sm:block hidden'
+                                />
+                                <FaUserCircle size={30}
+                                    style={{ transition: 'all 0.3s ease' }}
+                                    className='sm:hidden block'
                                 />
                             </div>
                         </div>
@@ -85,7 +98,7 @@ function Navbar() {
                 <div className='bg-white xl:h-full xl:w-[30%] lg:w-[40%] md:w-[410px] sm:w-[410px] overflow-x-hidden float-right flex flex-col pt-10 transition-all mt-[-10px] overflow-hidden' style={{
                     transform: `translatex(${count}px)`,
                     transition: '0.8s ease'
-                }}> 
+                }}>
                     <IoMdClose size={30} className='ml-5 cursor-pointer' onClick={handleClose} />
                     <div className="gap-10 ">
                         <div className='flex ' style={{

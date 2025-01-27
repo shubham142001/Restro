@@ -22,7 +22,7 @@ function Contactus() {
               <input
                 type="email"
                 id="email"
-                className="shadow-sm bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block lg:w-full  md:w-[600px] p-2.5 m-auto"
+                className="shadow-sm bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block lg:w-full md:w-[600px] p-2.5 m-auto"
                 placeholder="name@gmail.com"
                 required
               />
@@ -37,7 +37,7 @@ function Contactus() {
               <input
                 type="text"
                 id="subject"
-                className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 md:w-[600px] m-auto"
+                className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 lg:w-full md:w-[600px] m-auto"
                 placeholder="Let us know how we can help you"
                 required
               />
@@ -52,7 +52,7 @@ function Contactus() {
               <textarea
                 id="message"
                 rows="6"
-                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 md:w-[600px] m-auto"
+                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 lg:w-full md:w-[600px] m-auto"
                 placeholder="Leave a comment..."
               ></textarea>
             </div>

@@ -39,12 +39,12 @@ function Menu() {
                 <div className='lg:w-[10%] md:w-[23%] lg:h-[730px] md:h-[700px] overflow-y-scroll scrollbar-none  flex-col lg:pt-3 mt-1 rounded-2xl'>
                     <ul className='flex flex-col pl-3 gap-3'>
                         {data.map((data) => (
-                            <li key={data.id} className='font-sans w-[95%] lg:h-[60px] md:h-[100px] text-3xl text-center rounded-tr-3xl rounded-bl-3xl border hover:w-[100%] transition-all cursor-pointer overflow-hidden hover:shadow-lg hover:shadow-blue-500 borderb-br-xl duration-300'>
-                                <img src={data.img} alt="" className='lg:h-[60px] w-[100%]'/></li> 
+                            <li key={data.id} className='font-sans lg:w-[95%] lg:h-[60px] md:h-[100px] md:w-[80%] text-3xl text-center rounded-tr-3xl rounded-bl-3xl border lg:hover:w-[100%] md:hover:w-[90%] transition-all cursor-pointer overflow-hidden hover:shadow-lg hover:shadow-blue-500 borderb-br-xl duration-300'>
+                                <img src={data.img} alt="" className='lg:h-[60px] w-[100%] md:h-[100px]'/></li> 
                         ))}
                     </ul>
                 </div>
-                <div className='bg-white lg:w-[88%] md:w-[75%] xl:h-[730px] lg:h-[750px] md:h-[700px] m-auto rounded-3xl overflow-y-scroll scrollbar-none pt-3 grid xl:grid-cols-4  lg:grid-cols-3 xl:gap-10  lg:gap-12 md:gap-12 pl-8 pr-12 md:grid-cols-2'>
+                <div className='bg-white lg:w-[88%] md:w-[90%] xl:h-[730px] lg:h-[750px] md:h-[700px] m-auto rounded-3xl overflow-y-scroll scrollbar-none pt-3 grid xl:grid-cols-4  lg:grid-cols-3 xl:gap-10  lg:gap-12 md:gap-12 pl-8 pr-12 md:grid-cols-2'>
                     {
                         img.map((img) => (
                             <div className='h-[330px] w-[250px]  rounded-3xl pt-3 flex border bg-gray-100  flex-col items-center px-2  m-auto '>

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { useMediaQuery } from '@mui/material';
 import { IoMdClose } from "react-icons/io";
 import logo from '../assets/logo.png'
 import { FaShoppingCart } from "react-icons/fa";
@@ -11,7 +12,7 @@ function Navbar() {
     const [iconSize, setIconSize] = useState(40);
     const [count, setCount] = useState(0);
     const backgroundRef = useRef(null);
-    const [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(0);
 
     useEffect(() => {
         backgroundRef.current.style.display = "none";
@@ -53,7 +54,7 @@ function Navbar() {
                 <div className=' lg:p-0 flex justify-between lg:px-20 md:px-10 items-center md:h-20 lg:h-16 flex-shrink-0 lg:gap-4 md:gap-6 '>
                     <img src={logo} alt="" className='xl:h-18 xl:w-18 md:h-12 md:w-12 ' />
                     <h1 className='text-4xl font-semibold xl:ml-[-30px] bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent md:text-2xl md:ml-[-20px]'>Flavourest</h1>
-                    <input type="text" placeholder='Search Your Food' className='border xl:h-[50px] xl:w-[500px] rounded-3xl pl-4 outline-none bg-white md:h-[40px] lg:w-[500px] md:w-[220px]'/>      
+                    <input type="text" placeholder='Search Your Food' className='border xl:h-[50px] xl:w-[500px] rounded-3xl pl-4 outline-none bg-white md:h-[40px] lg:w-[500px] md:w-[220px]' />
                     <div className='flex gap-5  justify-center flex-shrink-0'>
                         <Link to="/"><h1 className='text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent'>Home</h1></Link>
                         <Link to="/Menu"><h1 className='text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent'>Menu</h1></Link>
@@ -80,20 +81,20 @@ function Navbar() {
                     </div>
                 </div>
             </div>
-            <div className='bg-black bg-opacity-35 xl:h-[800px] lg:h-full w-full border overflow-hidden mt-[-85px] z-20 fixed select-none' ref={backgroundRef} >
-                <div className='bg-white xl:h-full xl:w-[30%] lg:w-[40%] float-right flex flex-col pt-10 transition-all mt-[-10px] overflow-hidden' style={{
+            <div className='bg-black bg-opacity-35 xl:h-[800px] w-full md:h-full border overflow-hidden mt-[-85px] z-20 fixed select-none' ref={backgroundRef} >
+                <div className='bg-white xl:h-full xl:w-[30%] lg:w-[40%] md:w-[410px] overflow-x-hidden float-right flex flex-col pt-10 transition-all mt-[-10px] overflow-hidden' style={{
                     transform: `translatex(${count}px)`,
                     transition: '0.8s ease'
                 }}>
                     <IoMdClose size={30} className='ml-5 cursor-pointer' onClick={handleClose} />
-                    <div className="gap-10">
+                    <div className="gap-10 ">
                         <div className='flex ' style={{
                             transform: `translatex(${counter}px)`,
                             transition: '0.8s ease'
                         }}>
                             <div >
                                 {/* Login Form */}
-                                <form action="" className='flex flex-col gap-6 w-[410px] items-center'>
+                                <form action="" className='flex flex-col gap-6 md:w-[410px] items-center '>
                                     <h1 className='text-3xl font-semibold mb-3 text-gray-700'>Login</h1>
                                     <h1 className='font-medium text-lg text-red-500 cursor-pointer hover:underline hover:text-red-600 mt-[-30px] mb-5' onClick={(() => setCounter(-410))}>Create an account</h1>
                                     <input type="text" placeholder='Phone number' required className='border h-[50px] w-[300px] rounded-xl pl-4 outline-none bg-white m-auto' />
@@ -103,7 +104,7 @@ function Navbar() {
                             </div>
                             <div className='mt-[-15px]'>
                                 {/* Create Account */}
-                                <form action="" className='flex flex-col gap-2 w-[410px] items-center'>
+                                <form action="" className='flex flex-col gap-2 md:w-[410px] items-center'>
                                     <h1 className='text-3xl font-semibold mb-7 text-gray-700 '>Sign Up</h1>
                                     <h1 className='font-medium text-lg text-red-500 cursor-pointer hover:underline hover:text-red-600 mt-[-30px] mb-5' onClick={(() => setCounter(0))}>Login to your Account</h1>
                                     <input type="text" placeholder='Name' required className='border h-[50px] w-[300px] rounded-xl pl-4 outline-none bg-white m-auto' />

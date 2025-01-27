@@ -4,7 +4,7 @@ function Contactus() {
   return (
     <div>
       <section className="bg-white select-none">
-        <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md lg:h-[800px] md:py-16 md:px-6">
+        <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md lg:h-[800px] sm:py-16 md:px-6">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
             Contact Us
           </h2>
@@ -13,17 +13,17 @@ function Contactus() {
           </p>
           <form action="#" className="space-y-6">
             <div>
-              <label
-                htmlFor="email"
+            <label
+                htmlFor="Email"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 lg:ml-0 md:ml-20"
               >
-                Your email
+                Email
               </label>
               <input
-                type="email"
-                id="email"
-                className="shadow-sm bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block lg:w-full md:w-[600px] p-2.5 m-auto"
-                placeholder="name@gmail.com"
+                type="text"
+                id="Email"
+                className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 lg:w-full md:w-[600px] m-auto"
+                placeholder="xyz@gmail.com"
                 required
               />
             </div>

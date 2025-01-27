@@ -36,28 +36,28 @@ function Menu() {
     return (
         <>
             <div className='bg-gray-100 py-3 xl:h-[780px] flex gap-3 select-none'>
-                <div className='lg:w-[10%] md:w-[23%] lg:h-[730px] md:h-[700px] overflow-y-scroll scrollbar-none  flex-col lg:pt-3 mt-1 rounded-2xl'>
+                <div className='lg:w-[10%] md:w-[23%] lg:h-[730px] md:h-[700px] sm:h-[700px] sm:w-[23%] overflow-y-scroll scrollbar-none  flex-col lg:pt-3 mt-1 rounded-2xl '>
                     <ul className='flex flex-col pl-3 gap-3'>
                         {data.map((data) => (
-                            <li key={data.id} className='font-sans lg:w-[95%] lg:h-[60px] md:h-[100px] md:w-[80%] text-3xl text-center rounded-tr-3xl rounded-bl-3xl border lg:hover:w-[100%] md:hover:w-[90%] transition-all cursor-pointer overflow-hidden hover:shadow-lg hover:shadow-blue-500 borderb-br-xl duration-300'>
-                                <img src={data.img} alt="" className='lg:h-[60px] w-[100%] md:h-[100px]'/></li> 
+                            <li key={data.id} className='font-sans lg:w-[95%] lg:h-[60px] md:h-[100px] md:w-[80%] text-3xl text-center rounded-tr-3xl rounded-bl-3xl border lg:hover:w-[100%] md:hover:w-[90%] sm:hover:w-[100%] transition-all cursor-pointer overflow-hidden hover:shadow-lg hover:shadow-blue-500 borderb-br-xl duration-300'>
+                                <img src={data.img} alt="" className='lg:h-[60px] w-[100%] md:h-[100px] sm:h-[70px]'/></li> 
                         ))}
                     </ul>
                 </div>
-                <div className='bg-white lg:w-[88%] md:w-[90%] xl:h-[730px] lg:h-[750px] md:h-[700px] m-auto rounded-3xl overflow-y-scroll scrollbar-none pt-3 grid xl:grid-cols-4  lg:grid-cols-3 xl:gap-10  lg:gap-12 md:gap-12 pl-8 pr-12 md:grid-cols-2'>
+                <div className='bg-white lg:w-[88%] md:w-[90%] sm:w-[90%] xl:h-[730px] lg:h-[750px] md:h-[700px] sm:h-[700px] m-auto rounded-3xl overflow-y-scroll scrollbar-none pt-3 grid xl:grid-cols-4  lg:grid-cols-3 xl:gap-10  lg:gap-12 md:gap-12 sm:gap-12 md:pl-8 pr-12 sm:grid-cols-2 sm:pl-6'>
                     {
                         img.map((img) => (
-                            <div className='h-[330px] w-[250px]  rounded-3xl pt-3 flex border bg-gray-100  flex-col items-center px-2  m-auto '>
+                            <div className='md:h-[330px] md:w-[250px] sm:h-[300px] sm:w-[220px] rounded-3xl pt-3 flex border bg-gray-100  flex-col items-center px-2  m-auto '>
                                 <img src={img} alt="" className='h-[150px] w-[210px] rounded-2xl ' />
                                 <div className='flex flex-col justify-center items-center text-center pt-2 font-medium text-gray-950 gap-2'>
                                     <h1 className='font-extrabold text-2xl '>Tasty Burger</h1>
                                     <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit</h2>
                                     <div className='flex justify-center items-center'>
-                                        <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none font-medium rounded-full text-sm px-3 py-2 text-center inline-flex items-center me-2 dark:bg-red-600 dark:hover:bg-red-700  font-sans">
+                                        <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none font-medium rounded-full text-sm px-3 py-2 text-center inline-flex items-center me-2 dark:bg-red-600 dark:hover:bg-red-700  font-sans sm:h-12 md:h-full">
                                             Order Now
                                         </button>
-                                        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium rounded-full text-sm px-3 py-2 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700  font-sans">
-                                            <svg class="w-3.5 h-3.5 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
+                                        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium rounded-full text-sm px-3 py-2 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700  font-sans sm:h-12 md:h-full">
+                                            <svg class="md:w-3.5 md:h-3.5 sm:w-4 sm:h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
                                                 <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z" />
                                             </svg>
                                             Add to cart
@@ -68,7 +68,6 @@ function Menu() {
                             </div>
                         ))
                     }
-
                 </div>
                 <div>
 

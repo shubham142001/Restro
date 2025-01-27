@@ -29,11 +29,13 @@ function Speciality() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 lg:gap-10 pb-10 select-none  md:gap-6 lg:w-full md:w-full md:p-4">
+    <>
+    <div className='overflow-x-scroll scrollbar-none'>
+    <div className="md:grid md:grid-cols-3 lg:grid-cols-3 lg:gap-10 pb-10 select-none md:gap-6 lg:w-full md:w-full md:p-4 sm:grid-cols-2  sm:flex sm:pl-6 sm:flex-row sm:gap-6">
       {data.map((item, index) => (
         <div
           key={item.id}
-          className="relative xl:h-[300px] xl:w-[300px] lg:h-[280px] lg:w-[280px] md:h-[240px] md:w-[240px] rounded-2xl overflow-hidden cursor-pointer md:mx-auto"
+          className="relative xl:h-[300px] xl:w-[300px] lg:h-[280px] lg:w-[280px] md:h-[240px] md:w-[240px] sm:h-[200px] sm:w-[200px] rounded-2xl overflow-hidden cursor-pointer md:mx-auto sm:flex-shrink-0 "
           onMouseEnter={() => handleMouseEnter(index)}
           onMouseLeave={handleMouseLeave}
         >
@@ -48,15 +50,19 @@ function Speciality() {
           {hoveredIndex === index && (
             <div className="absolute top-0 left-0 h-full w-full bg-black bg-opacity-75 flex flex-col justify-center items-center text-white">
               <div  className="text-yellow-300 mb-4"> {item.icons }</div>
-              <h1 className="text-2xl font-semibold  bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">
+              <h1 className="md:text-2xl sm:text-lg font-semibold  bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">
                 {item.name1}
               </h1>
-              <p className="text-center px-4">{item.description}</p>
+              <p className="text-center px-4 sm:text-xs md:text-xl">{item.description}</p>
             </div>
           )}
         </div>
       ))}
     </div>
+    </div>
+    
+    </>
+    
   );
 }
 

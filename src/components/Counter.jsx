@@ -14,9 +14,9 @@ function Counter() {
     return (
         <>
             <ScrollTrigger onEnter={() => setCount(true)} onExit={() => setCount(false)}>
-                <div className='w-[95%] h-[300px] m-auto grid justify-center items-center'>
+                <div className='w-[95%] md:h-[300px] m-auto grid justify-center items-center sm:h-[200px]'>
                     <h1 className=' h-12 text-5xl text-center text-blue-800'>Lets Number<span className='text-green-600'> to Speak</span></h1>
-                    <div className='flex xl:gap-36 flex-wrap justify-center lg:gap-28 md:gap-14'>
+                    <div className='flex xl:gap-36 flex-wrap justify-center lg:gap-28 md:gap-14 sm:gap-14'>
                         {
                             data.map((data) => (
                                 <div key={data.id} className=' grid justify-center items-center h-[100px]'>
@@ -27,11 +27,11 @@ function Counter() {
                                             duration={5}
                                             separator=","
                                             prefix=""
-                                            className='text-4xl  font-bold'
+                                            className='md:text-4xl sm:text-3xl font-bold'
                                         />)}
 
                                     </div>
-                                    <h2 className='text-4xl  font-bold h-[100px] '>{data.name}</h2>
+                                    <h2 className='md:text-4xl sm:text-2xl font-bold h-[100px] '>{data.name}</h2>
                                 </div>
                             ))
                         }

@@ -50,15 +50,15 @@ function Navbar() {
 
     return (
         <>
-            <div className='sticky top-0 z-10 overflow-hidden bg-white select-none flex-shrink-0 xl:h-20 lg:h-20 md:w-auto lg:pt-2 md:h-24'>
-                <div className=' lg:p-0 flex justify-between lg:px-20 md:px-10 items-center md:h-20 lg:h-16 flex-shrink-0 lg:gap-4 md:gap-6 '>
-                    <img src={logo} alt="" className='xl:h-18 xl:w-18 md:h-12 md:w-12 ' />
-                    <h1 className='text-4xl font-semibold xl:ml-[-30px] bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent md:text-2xl md:ml-[-20px]'>Flavourest</h1>
-                    <input type="text" placeholder='Search Your Food' className='border xl:h-[50px] xl:w-[500px] rounded-3xl pl-4 outline-none bg-white md:h-[40px] lg:w-[500px] md:w-[220px]' />
-                    <div className='flex gap-5  justify-center flex-shrink-0'>
-                        <Link to="/"><h1 className='text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent'>Home</h1></Link>
-                        <Link to="/Menu"><h1 className='text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent'>Menu</h1></Link>
-                        <Link to="/Contactus1"><h1 className='text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent'>Contact</h1></Link>
+            <div className='sticky top-0 z-10 overflow-hidden bg-white select-none flex-shrink-0 xl:h-20 lg:h-20 w-auto lg:pt-2 md:h-24 sm:h-18 sm:pt-6 '>
+                <div className=' lg:p-0 flex justify-between lg:px-20 md:px-10 items-center md:h-20 lg:h-16 sm:px-2 flex-shrink-0 lg:gap-4 md:gap-6 sm:gap-2'>
+                    <img src={logo} alt="" className='xl:h-18 xl:w-18 md:h-12 md:w-12 sm:h-12 sm:w-12' />
+                    <h1 className='text-4xl font-semibold xl:ml-[-30px] bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent md:text-2xl md:ml-[-20px] sm:md:ml-[-20px] sm:text-xl'>Flavourest</h1>
+                    <input type="text" placeholder='Search Your Food' className='border xl:h-[50px] xl:w-[500px] rounded-3xl pl-4 outline-none bg-white md:h-[40px] lg:w-[500px] md:w-[220px] sm:w-[200px] sm:h-[40px]' />
+                    <div className='flex md:gap-5  justify-center flex-shrink-0 sm:gap-3'>
+                        <Link to="/"><h1 className='md:text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent sm:text-lg'>Home</h1></Link>
+                        <Link to="/Menu"><h1 className='text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent sm:text-lg'>Menu</h1></Link>
+                        <Link to="/Contactus1"><h1 className='text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent sm:text-lg'>Contact</h1></Link>
                     </div>
                     <Link to="/CartPage"><div className='text-gray-700 hover:text-green-500 w-10 flex justify-center flex-shrink-0'>
                         <FaShoppingCart size={25} className='hover:cursor-pointer transition-all duration-500 ' />
@@ -68,9 +68,9 @@ function Navbar() {
                         onMouseLeave={() => setIconSize(40)}
                     >
                         <div className='flex gap-1 items-center text-gray-700 hover:text-green-500 '>
-                            <div onClick={handleOpen} className='flex gap-1'>
+                            <div onClick={handleOpen} className='flex md:gap-1'>
                                 <div className='' >
-                                    <h2 className='text-lg font-bold transition-all duration-700'>Hello</h2>
+                                    <h2 className='md:text-lg md:font-bold transition-all duration-700 sm:font-semibold'>Hello</h2>
                                     <p className='font-semi-bold text-md '>Shubham</p>
                                 </div >
                                 <FaUserCircle size={iconSize}
@@ -81,11 +81,11 @@ function Navbar() {
                     </div>
                 </div>
             </div>
-            <div className='bg-black bg-opacity-35 xl:h-[800px] w-full md:h-full border overflow-hidden mt-[-85px] z-20 fixed select-none' ref={backgroundRef} >
-                <div className='bg-white xl:h-full xl:w-[30%] lg:w-[40%] md:w-[410px] overflow-x-hidden float-right flex flex-col pt-10 transition-all mt-[-10px] overflow-hidden' style={{
+            <div className='bg-black bg-opacity-35 xl:h-[800px] w-full md:h-full border overflow-hidden mt-[-85px] z-20 fixed select-none ' ref={backgroundRef} >
+                <div className='bg-white xl:h-full xl:w-[30%] lg:w-[40%] md:w-[410px] sm:w-[410px] overflow-x-hidden float-right flex flex-col pt-10 transition-all mt-[-10px] overflow-hidden' style={{
                     transform: `translatex(${count}px)`,
                     transition: '0.8s ease'
-                }}>
+                }}> 
                     <IoMdClose size={30} className='ml-5 cursor-pointer' onClick={handleClose} />
                     <div className="gap-10 ">
                         <div className='flex ' style={{
@@ -94,7 +94,7 @@ function Navbar() {
                         }}>
                             <div >
                                 {/* Login Form */}
-                                <form action="" className='flex flex-col gap-6 md:w-[410px] items-center '>
+                                <form action="" className='flex flex-col gap-6 md:w-[410px] sm:w-[410px] items-center '>
                                     <h1 className='text-3xl font-semibold mb-3 text-gray-700'>Login</h1>
                                     <h1 className='font-medium text-lg text-red-500 cursor-pointer hover:underline hover:text-red-600 mt-[-30px] mb-5' onClick={(() => setCounter(-410))}>Create an account</h1>
                                     <input type="text" placeholder='Phone number' required className='border h-[50px] w-[300px] rounded-xl pl-4 outline-none bg-white m-auto' />
@@ -102,7 +102,7 @@ function Navbar() {
                                     <button type="submit" className="text-white  w-[300px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto ">Login</button>
                                 </form>
                             </div>
-                            <div className='mt-[-15px]'>
+                            <div className='mt-[-15px] sm:pl-16 md:pl-0'>
                                 {/* Create Account */}
                                 <form action="" className='flex flex-col gap-2 md:w-[410px] items-center'>
                                     <h1 className='text-3xl font-semibold mb-7 text-gray-700 '>Sign Up</h1>

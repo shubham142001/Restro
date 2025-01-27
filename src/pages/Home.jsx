@@ -12,7 +12,7 @@ function Home() {
 
     return (
         <div className='relative'>
-            {/* <Head /> */}
+            <Head />
             <Headings name="Our " name1='Speciality' />
             <Speciality />
             <Headings name="Most Popu" name1='lar foods' />

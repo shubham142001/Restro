@@ -31,11 +31,11 @@ function Speciality() {
   return (
     <>
     <div className='overflow-x-scroll scrollbar-none'>
-    <div className="md:grid md:grid-cols-3 lg:grid-cols-3 lg:gap-10 pb-10 select-none md:gap-6 lg:w-full md:w-full md:p-4 sm:grid-cols-2  sm:flex sm:pl-6 sm:flex-row sm:gap-6">
+    <div className="md:grid md:grid-cols-3 lg:grid-cols-3 lg:gap-10 pb-10 select-none md:gap-6 lg:w-full md:w-full md:p-4 sm:grid-cols-2 flex pl-6 flex-row gap-6">
       {data.map((item, index) => (
         <div
           key={item.id}
-          className="relative xl:h-[300px] xl:w-[300px] lg:h-[280px] lg:w-[280px] md:h-[240px] md:w-[240px] sm:h-[200px] sm:w-[200px] rounded-2xl overflow-hidden cursor-pointer md:mx-auto sm:flex-shrink-0 "
+          className="relative xl:h-[300px] xl:w-[300px] lg:h-[280px] lg:w-[280px] md:h-[240px] md:w-[240px] sm:h-[200px] sm:w-[200px] w-[150px] h-[150px] rounded-2xl overflow-hidden cursor-pointer md:mx-auto flex-shrink-0 "
           onMouseEnter={() => handleMouseEnter(index)}
           onMouseLeave={handleMouseLeave}
         >

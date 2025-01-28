@@ -15,7 +15,7 @@ function Counter() {
         <>
             <ScrollTrigger onEnter={() => setCount(true)} onExit={() => setCount(false)}>
                 <div className='w-[95%] md:h-[300px] m-auto grid justify-center items-center sm:h-[200px]'>  
-                    <div className='flex xl:gap-36 flex-wrap justify-center lg:gap-28 md:gap-14 sm:gap-14 gap-10'>
+                    <div className='flex xl:gap-36 flex-wrap justify-center lg:gap-28 md:gap-14 sm:gap-14 gap-6'>
                         {
                             data.map((data) => (
                                 <div key={data.id} className=' grid justify-center items-center h-[100px]'>

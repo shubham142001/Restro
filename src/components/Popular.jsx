@@ -11,21 +11,21 @@ import { IoStarSharp } from 'react-icons/io5';
 const data = [{
   id: 1,
   image: Popular1,
-  name: 'Delicious Burger',
+  name: 'Burgers',
   stars1: [<IoStarSharp />, <IoStarSharp />, <IoStarSharp />, <IoStarSharp />],
   stars2: [<IoStarSharp />]
 },
 {
   id: 2,
   image: Popular2,
-  name: 'Delicious Pizza',
+  name: 'Pizzas',
   stars1: [<IoStarSharp />, <IoStarSharp />, <IoStarSharp />, <IoStarSharp />, <IoStarSharp />],
   stars2: []
 },
 {
   id: 3,
   image: Popular3,
-  name: 'Delicious Sandwitch',
+  name: 'Sandwitch',
   stars1: [<IoStarSharp />, <IoStarSharp />, <IoStarSharp />],
   stars2: [<IoStarSharp />, <IoStarSharp />]
 },
@@ -46,7 +46,7 @@ const data = [{
 {
   id: 6,
   image: Popular6,
-  name: 'Delicious Biryani',
+  name: 'Biryani',
   stars1: [<IoStarSharp />, <IoStarSharp />, <IoStarSharp />, <IoStarSharp />],
   stars2: <IoStarSharp />
 },]

@@ -54,20 +54,20 @@ const data = [{
 function Popular() {
   return (
     <>
-      <div className='sm:grid lg:grid-cols-3 sm:grid-cols-2 px-0 select-none sm:pl-4 flex flex-shrink-0 overflow-scroll gap-10 scrollbar-none'>
+      <div className='sm:grid lg:grid-cols-3 sm:grid-cols-2 px-0 select-none sm:pl-4 flex flex-shrink-0 overflow-scroll gap-1 scrollbar-none sm:gap-10'>
         {data.map((data) => (
-          <div key={data.id} className="xl:h-[400px] xl:w-[350px] md:h-[370px] md:w-[300px] bg-gray-100 border-8 rounded-2xl shadow-lg m-auto mb-20 sm:h-[320px] sm:w-[250px] h-[390px] w-[330px] flex-shrink-0 ml-10  sm:ml-0 ">
+          <div key={data.id} className="xl:h-[400px] xl:w-[350px] md:h-[370px] md:w-[300px] bg-gray-100 border-8 rounded-2xl shadow-lg m-auto mb-20 sm:h-[320px] sm:w-[250px] h-[330px] w-[250px] flex-shrink-0 ml-10  sm:ml-0 ">
             <div className="xl:h-[150px] xl:w-[300px] lg:h-[130px] lg:w-[250px] md:h-[150px] md:w-[300px] sm:h-[150px] sm:w-[300px] pt-4 flex m-auto sm:pl-2 pl-5 ">
               <img
-                className="xl:h-[200px] xl:w-[300px] lg:h-[180px] lg:w-[250px] md:h-[180px] md:w-[270px] sm:h-[150px] sm:w-[200px] h-[200px] w-[270px]  object-cover rounded-lg overflow-hidden "
+                className="xl:h-[200px] xl:w-[300px] lg:h-[180px] lg:w-[250px] md:h-[180px] md:w-[270px] sm:h-[150px] sm:w-[200px] h-[140px] w-[200px]  object-cover rounded-lg overflow-hidden "
                 src={data.image}
                 alt={data.name}
               />
             </div>
 
             <div className=" text-center  md:h-[220px] items-center flex flex-col justify-center md:pt-20 gap-2 sm:h-[170px] sm:mt-[-20px] lg:mt-0 mt-2">
-              <h1 className="md:text-2xl md:font-semibold sm:font-bold font-semibold text-4xl pb-4 sm:pb-0">{data.name}</h1>
-              <div className="flex justify-center text-2xl" >
+              <h1 className="md:text-2xl md:font-semibold sm:font-bold sm:text-4xl text-3xl pb-2 sm:pb-0">{data.name}</h1>
+              <div className="flex justify-center text-2xl mb-2 sm:mb-0" >
                 <div className='text-yellow-400 flex'>{data.stars1}</div>
                 {data.stars2}
               </div>

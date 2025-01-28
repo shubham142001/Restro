@@ -9,6 +9,8 @@ import Login from '../assets/login.gif'
 import { FaHome } from "react-icons/fa";
 import { MdRestaurantMenu } from "react-icons/md";
 import { IoMdContacts } from "react-icons/io";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +18,10 @@ function Navbar() {
     const [count, setCount] = useState(0);
     const backgroundRef = useRef(null);
     const [counter, setCounter] = useState(0);
-    const [down, setDown] = useState(false);
+    const [down, setDown] = useState(false); const { ref, inView } = useInView({
+        triggerOnce: false, // Trigger the animation only once when it comes into view
+        threshold: 0.1,    // Start animating when 10% of the component is visible
+    });
 
     useEffect(() => {
         backgroundRef.current.style.display = "none";
@@ -57,22 +62,31 @@ function Navbar() {
             <div className='sticky top-0 z-10 overflow-hidden bg-white select-none flex-shrink-0 xl:h-20 lg:h-20 w-auto lg:pt-2 md:h-24 sm:h-18 sm:pt-6 h-14 '>
                 <div className=' lg:p-0 flex justify-between lg:px-20 md:px-10 items-center md:h-20 lg:h-16 sm:px-2 flex-shrink-0 lg:gap-4 md:gap-6 sm:gap-2 px-8 py-2 sm:py-0'>
                     <img src={logo} alt="" className='xl:h-18 xl:w-18 md:h-12 md:w-12 sm:h-12 sm:w-12 h-10 w-10' />
-                    <h1 className='lg-text-4xl font-semibold xl:ml-[-30px] bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent md:text-2xl md:ml-[-20px] sm:md:ml-[-20px] sm:text-xl text-2xl '>Flavourest</h1>
+                    <motion.h1 className='lg-text-4xl font-semibold xl:ml-[-30px] bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent md:text-2xl md:ml-[-20px] sm:md:ml-[-20px] sm:text-xl text-2xl' ref={ref}
+                        initial={{ opacity: 0, translateX: -50 }}
+                        animate={inView ? { opacity: 1, translateX: 0 } : {}}
+                        transition={{ delay: 0.5, duration: 0.5, ease: "easeInOut" }}>Flavourest</motion.h1>
                     <input type="text" placeholder='Search Your Food' className='border xl:h-[50px] xl:w-[500px] rounded-3xl sm:pl-4 pl-3 outline-none bg-white md:h-[40px] lg:w-[500px] md:w-[220px] sm:w-[200px] sm:h-[40px] h-[35px] hidden sm:block' />
-                    <div className='sm:flex md:gap-5  justify-center flex-shrink-0 sm:gap-3  hidden'>
+                    <motion.div className='sm:flex md:gap-5  justify-center flex-shrink-0 sm:gap-3  hidden' initial={{ opacity: 0, translateY: 50 }}
+                        animate={inView ? { opacity: 1, translateY: 0 } : {}}
+                        transition={{ delay: 0.5, duration: 0.5, ease: "easeInOut" }}>
 
                         <Link to="/"><h1 className='md:text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent sm:text-lg'>Home</h1></Link>
                         <Link to="/Menu"><h1 className='text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent sm:text-lg'>Menu</h1></Link>
                         <Link to="/Contactus1"><h1 className='text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent sm:text-lg'>Contact</h1></Link>
-                    </div>
+                    </motion.div>
 
-                    <div className='text-black hover:text-green-500 justify-center flex-shrink-0 sm:hidden' onClick={() => setDown(!down)}>
+                    <motion.div className='text-black hover:text-green-500 justify-center flex-shrink-0 sm:hidden' initial={{ opacity: 0, translateY: 50 }}
+                        animate={inView ? { opacity: 1, translateY: 0 } : {}}
+                        transition={{ delay: 0.5, duration: 0.5, ease: "easeInOut" }} onClick={() => setDown(!down)}>
                         <IoSearch size={30} className='hover:cursor-pointer transition-all duration-500 ml-24' />
-                    </div>
+                    </motion.div>
 
-                    <Link to="/CartPage"><div className='text-black hover:text-green-500 w-10 flex justify-center flex-shrink-0 '>
+                    <Link to="/CartPage"><motion.div className='text-black hover:text-green-500 w-10 flex justify-center flex-shrink-0 ' initial={{ opacity: 0, translateY: -50 }}
+                        animate={inView ? { opacity: 1, translateY: 0 } : {}}
+                        transition={{ delay: 0.5, duration: 0.5, ease: "easeInOut" }}>
                         <FaShoppingCart size={25} className='hover:cursor-pointer transition-all duration-500 ' />
-                    </div></Link>
+                    </motion.div></Link>
 
 
 
@@ -81,7 +95,9 @@ function Navbar() {
                     >
                         <div className='flex gap-1 items-center text-black hover:text-green-500 '>
 
-                            <div onClick={handleOpen} className='flex md:gap-1'>
+                            <motion.div onClick={handleOpen} className='flex md:gap-1' initial={{ opacity: 0, translateX: 50 }}
+                                animate={inView ? { opacity: 1, translateX: 0 } : {}}
+                                transition={{ delay: 0.5, duration: 0.5, ease: "easeInOut" }}>
                                 <div className='sm:block hidden' >
                                     <h2 className='md:text-lg md:font-bold transition-all duration-700 sm:font-semibold'>Hello</h2>
                                     <p className='font-semi-bold text-md '>Shubham</p>
@@ -95,7 +111,7 @@ function Navbar() {
                                     style={{ transition: 'all 0.3s ease' }}
                                     className='sm:hidden block'
                                 />
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
@@ -110,7 +126,7 @@ function Navbar() {
                 <ul className="flex flex-col px-5 py-2 space-y-4 items-center">
 
                     <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2  border-white">
-                        <input type="text" placeholder='Search Your Food' className='rounded-2xl p-2 pl-5 w-[350px] outline-none'/>
+                        <input type="text" placeholder='Search Your Food' className='rounded-2xl p-2 pl-5 w-[350px] outline-none' />
                     </li>
 
                     <Link to="/">
@@ -132,12 +148,12 @@ function Navbar() {
             </div>
 
             <div className='bg-black bg-opacity-35 xl:h-[800px] sm:w-full md:h-full border overflow-hidden mt-[-85px] z-20 fixed select-none h-[1000px] ' ref={backgroundRef} >
-                <div className='bg-white xl:h-full xl:w-[30%] lg:w-[40%] md:w-[410px] sm:w-[410px] overflow-x-hidden float-right flex flex-col pt-10 transition-all mt-[-10px] overflow-hidden  sm:h-full h-full' style={{
+                <div className='bg-white xl:h-full xl:w-[30%] lg:w-[40%] md:w-[410px] sm:w-[410px] overflow-x-hidden float-right flex flex-col pt-10 transition-all mt-[-10px] overflow-hidden  sm:h-full h-full md:pt-0' style={{
                     transform: `translatex(${count}px)`,
                     transition: '0.8s ease'
                 }}>
-                    <IoMdClose size={30} className='ml-5 cursor-pointer mt-11 sm:mt-0' onClick={handleClose} />
-                    <div className="gap-10 ">
+                    <IoMdClose size={30} className='ml-5 cursor-pointer mt-11 sm:mt-0 md:mt-6' onClick={handleClose} />
+                    <div className="gap-10 h-[370px]">
                         <div className='flex ' style={{
                             transform: `translatex(${counter}px)`,
                             transition: '0.8s ease'
@@ -146,9 +162,9 @@ function Navbar() {
                                 {/* Login Form */}
                                 <form action="" className='flex flex-col gap-6 md:w-[410px] sm:w-[410px] items-center w-[400px] h-[410px] '>
                                     <h1 className='text-3xl font-semibold sm:mb-3 mb-5 text-gray-700 '>Login</h1>
-                                    <h1 className='font-medium text-lg text-red-500 cursor-pointer hover:underline hover:text-red-600 mt-[-30px] mb-5' onClick={(() => setCounter(-410))}>Create an account</h1>
-                                    <input type="text" placeholder='Phone number' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto' />
-                                    <input type="text" placeholder='Password' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto' />
+                                    <h1 className='font-medium text-lg text-red-500 cursor-pointer hover:underline hover:text-red-600 mt-[-30px] mb-5 sm:mb-0' onClick={(() => setCounter(-410))}>Create an account</h1>
+                                    <input type="text" placeholder='Phone number' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto sm:mb-0' />
+                                    <input type="text" placeholder='Password' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto sm:mb-0' />
                                     <button type="submit" className="text-white sm:w-[300px] w-[350px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto ">Login</button>
                                 </form>
                             </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, } from 'react';
 import speciality from '../assets/speciality.jpg';
 import speciality1 from '../assets/speciality1.jpg';
 import speciality2 from '../assets/speciality2.jpeg';
@@ -10,10 +10,6 @@ import { SiBuymeacoffee } from "react-icons/si";
 
 function Speciality() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const { ref, inView } = useInView({
-    triggerOnce: false, // Trigger the animation only once when it comes into view
-    threshold: 0.1,    // Start animating when 10% of the component is visible
-  });
 
   const data = [
     { id: 1, img: speciality, name1: 'TastyPizzas', description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti fuga provident iusto ad nisi. Vero quo dolorum ex veniam excepturi?', icons: <GiFullPizza size={80} /> },

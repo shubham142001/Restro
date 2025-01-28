@@ -9,7 +9,7 @@ function Head() {
       <div className='md:h-[400px] flex justify-evenly md:px-[80px] select-none xl:pt-0 lg:py-10 sm:py-2 sm:px-[20px] sm:h-[350px] px-4'>
         <div className='xl:w-[60%] lg:w-[60%]'>
           <div className='xl:w-[800px] xl:p-[50px] lg:w-[500px] lg:pt-5 '>
-            <div className=' sm:pt-[-20px] pt-2  h-20'>
+            <div className=' sm:pt-[-20px] md:pt-0 pt-2  h-20 md:h-32 '>
               <h1 className='md:text-8xl sm:text-6xl text-sky-600 py-5 text-5xl '>Find<span className='text-green-600'>Your</span></h1>
             </div>
             <h3 className='md:text-4xl sm:text-4xl text-4xl'>Favourite Food</h3>

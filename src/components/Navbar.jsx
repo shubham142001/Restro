@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { RxDropdownMenu } from "react-icons/rx";
+import { IoSearch } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 import logo from '../assets/logo.png'
 import { FaShoppingCart } from "react-icons/fa";
@@ -18,7 +18,7 @@ function Navbar() {
     const [count, setCount] = useState(0);
     const backgroundRef = useRef(null);
     const [counter, setCounter] = useState(0);
-    const [down,setDown] = useState(false);
+    const [down, setDown] = useState(false);
 
     useEffect(() => {
         backgroundRef.current.style.display = "none";
@@ -57,10 +57,10 @@ function Navbar() {
     return (
         <>
             <div className='sticky top-0 z-10 overflow-hidden bg-white select-none flex-shrink-0 xl:h-20 lg:h-20 w-auto lg:pt-2 md:h-24 sm:h-18 sm:pt-6 h-14 '>
-                <div className=' lg:p-0 flex justify-between lg:px-20 md:px-10 items-center md:h-20 lg:h-16 sm:px-2 flex-shrink-0 lg:gap-4 md:gap-6 sm:gap-2 px-2 py-2 sm:py-0'>
+                <div className=' lg:p-0 flex justify-between lg:px-20 md:px-10 items-center md:h-20 lg:h-16 sm:px-2 flex-shrink-0 lg:gap-4 md:gap-6 sm:gap-2 px-8 py-2 sm:py-0'>
                     <img src={logo} alt="" className='xl:h-18 xl:w-18 md:h-12 md:w-12 sm:h-12 sm:w-12 h-10 w-10' />
                     <h1 className='lg-text-4xl font-semibold xl:ml-[-30px] bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent md:text-2xl md:ml-[-20px] sm:md:ml-[-20px] sm:text-xl text-2xl '>Flavourest</h1>
-                    <input type="text" placeholder='Search Your Food' className='border xl:h-[50px] xl:w-[500px] rounded-3xl sm:pl-4 pl-3 outline-none bg-white md:h-[40px] lg:w-[500px] md:w-[220px] sm:w-[200px] sm:h-[40px] h-[35px]' />
+                    <input type="text" placeholder='Search Your Food' className='border xl:h-[50px] xl:w-[500px] rounded-3xl sm:pl-4 pl-3 outline-none bg-white md:h-[40px] lg:w-[500px] md:w-[220px] sm:w-[200px] sm:h-[40px] h-[35px] hidden sm:block' />
                     <div className='sm:flex md:gap-5  justify-center flex-shrink-0 sm:gap-3  hidden'>
 
                         <Link to="/"><h1 className='md:text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent sm:text-lg'>Home</h1></Link>
@@ -68,13 +68,15 @@ function Navbar() {
                         <Link to="/Contactus1"><h1 className='text-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent sm:text-lg'>Contact</h1></Link>
                     </div>
 
-                    <Link to="/CartPage"><div className='text-black hover:text-green-500 w-10 sm:flex justify-center flex-shrink-0 hidden'>
+                    <div className='text-black hover:text-green-500 justify-center flex-shrink-0 sm:hidden' onClick={() => setDown(!down)}>
+                        <IoSearch size={30} className='hover:cursor-pointer transition-all duration-500 ml-24' />
+                    </div>
+
+                    <Link to="/CartPage"><div className='text-black hover:text-green-500 w-10 flex justify-center flex-shrink-0 '>
                         <FaShoppingCart size={25} className='hover:cursor-pointer transition-all duration-500 ' />
                     </div></Link>
 
-                    <div className='text-black hover:text-green-500 justify-center flex-shrink-0 sm:hidden'  onClick={() => setDown(!down)}>
-                        <RxDropdownMenu size={30} className='hover:cursor-pointer transition-all duration-500 ' />
-                    </div>
+
 
                     <div className=' hover:cursor-pointer flex-shrink-0 justify-center items-center flex' onMouseEnter={() => setIconSize(50)}
                         onMouseLeave={() => setIconSize(40)}
@@ -103,23 +105,28 @@ function Navbar() {
             <div
                 className=" w-full rounded-br-xl rounded-bl-2xl text-black text-lg bg-slate-100 overflow-hidden transition-all "
                 style={{
-                    maxHeight: down ? "500px" : "0px" , // Smooth height transition
-                    transition: "max-height 0.8s ease", 
+                    maxHeight: down ? "500px" : "0px", // Smooth height transition
+                    transition: "max-height 0.8s ease",
                 }}
             >
-                <ul className="flex flex-col px-5 py-2 space-y-4">
+                <ul className="flex flex-col px-5 py-2 space-y-4 items-center">
+
+                    <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 border-b-2 border-white">
+                        <input type="text" placeholder='Search Your Food' className='rounded-2xl p-1 w-[350px] outline-none'/>
+                    </li>
+
                     <Link to="/">
-                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 border-b-2 border-white" onClick={()=>setDown(false)}>
+                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 border-b-2 border-white " onClick={() => setDown(false)}>
                             <FaHome /> Home
                         </li>
                     </Link>
                     <Link to="/Menu">
-                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 border-b-2 border-white" onClick={()=>setDown(false)}>
+                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 border-b-2 border-white" onClick={() => setDown(false)}>
                             <MdRestaurantMenu /> Menu
                         </li>
                     </Link>
                     <Link to="/Contactus1">
-                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2"  onClick={()=>setDown(false)}>
+                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2" onClick={() => setDown(false)}>
                             <IoMdContacts /> Contact us
                         </li>
                     </Link>

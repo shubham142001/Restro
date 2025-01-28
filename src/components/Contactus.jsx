@@ -1,19 +1,28 @@
 import React from 'react'
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer";
 
 function Contactus() {
+  const { ref, inView } = useInView({
+    triggerOnce: false, // Trigger animation every time it scrolls into view
+    threshold: 0.1,     // Trigger when 10% of the component is visible
+  });
   return (
     <div>
-      <section className="bg-white select-none">
+      <section className="bg-white select-none" ref={ref}>
         <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md lg:h-[800px] sm:py-16 md:px-6">
-          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
+          <motion.h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white"
+            initial={{ opacity: 0, translateY: 20 }} 
+            animate={inView ? { opacity: 1, translateY: 0 } : {}} 
+            transition={{ delay: 0.5, duration: 0.9, ease: "easeInOut" }}>
             Contact Us
-          </h2>
+          </motion.h2>
           <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
             Got a issue ? Want to send feedback about our Restaurant and Dishes ? Need details about our Restaurant ? Let us know.
           </p>
           <form action="#" className="space-y-6">
             <div>
-            <label
+              <label
                 htmlFor="Email"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 lg:ml-0 md:ml-20"
               >

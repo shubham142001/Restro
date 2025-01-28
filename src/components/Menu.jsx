@@ -1,4 +1,6 @@
 import React from 'react'
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer";
 import Popular1 from '../assets/Pop1.jpg';
 import Popular2 from '../assets/Pop2.jpg';
 import Popular3 from '../assets/Pop3.jpg';
@@ -30,17 +32,25 @@ function Menu() {
         { id: 10, img: Menu10, },
     ]
 
+    const { ref, inView } = useInView({
+        triggerOnce: false, // Trigger the animation only once when it comes into view
+        threshold: 0.1,    // Start animating when 10% of the component is visible
+    });
+
     const img = [
         Popular1, Popular2, Popular3, Popular4, Popular5, Popular6,
     ]
     return (
         <>
-            <div className='bg-gray-100 py-3 xl:h-[780px] flex gap-3 select-none flex-col sm:flex-row '>
+            <div className='bg-gray-100 py-3 xl:h-[780px] flex gap-3 select-none flex-col sm:flex-row ' ref={ref}>
                 <div className='lg:w-[10%] md:w-[23%] lg:h-[730px] md:h-[700px] sm:h-[700px] sm:w-[23%] w-full overflow-y-scroll scrollbar-none  flex-col lg:pt-3 mt-1 rounded-2xl overflow-scroll'>
                     <ul className='flex flex-row pl-3 gap-3 overflow-scroll py-4 sm:py-0 scrollbar-none sm:flex-col'>
                         {data.map((data) => (
-                            <li key={data.id} className='font-sans lg:w-[95%] lg:h-[60px] md:h-[100px] md:w-[80%]  sm:rounded-tr-3xl sm:rounded-bl-3xl border lg:hover:w-[100%] md:hover:w-[90%] sm:hover:w-[100%] transition-all cursor-pointer overflow-hidden hover:shadow-lg hover:shadow-blue-500 borderb-br-xl duration-300 w-28 h-28 flex-shrink-0 rounded-full'>
-                                <img src={data.img} alt="" className='lg:h-[60px] sm:w-[100%] md:h-[100px] sm:h-[70px] w-28 h-28'/></li> 
+                            <motion.li key={data.id} className='font-sans lg:w-[95%] lg:h-[60px] md:h-[100px] md:w-[80%]  sm:rounded-tr-3xl sm:rounded-bl-3xl border lg:hover:w-[100%] md:hover:w-[90%] sm:hover:w-[100%] transition-all cursor-pointer overflow-hidden hover:shadow-lg hover:shadow-blue-500 borderb-br-xl duration-300 w-28 h-28 flex-shrink-0 rounded-full'
+                                initial={{ scale: 0 }}
+                                animate={inView ? { scale: 1 } : { scale: 0 }}
+                                transition={{ delay: 0.3, duration: 0.3, ease: "easeInOut" }}>
+                                <img src={data.img} alt="" className='lg:h-[60px] sm:w-[100%] md:h-[100px] sm:h-[70px] w-28 h-28' /></motion.li>
                         ))}
                     </ul>
                 </div>

@@ -12,7 +12,7 @@ function Headings({ name, name1 }) {
     <motion.div
       ref={ref}
       className="flex justify-center lg:pt-10 pb-5"
-      initial={{ opacity: 0, translateY: 20 }}
+      initial={{ opacity: 0, translateY: 50 }}
       animate={inView ? { opacity: 1, translateY: 0 } : {}}
       transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }}
     >

@@ -10,8 +10,6 @@ import { FaHome } from "react-icons/fa";
 import { MdRestaurantMenu } from "react-icons/md";
 import { IoMdContacts } from "react-icons/io";
 
-
-
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [iconSize, setIconSize] = useState(40);
@@ -147,7 +145,7 @@ function Navbar() {
                             <div >
                                 {/* Login Form */}
                                 <form action="" className='flex flex-col gap-6 md:w-[410px] sm:w-[410px] items-center w-[400px] h-[410px] '>
-                                    <h1 className='text-3xl font-semibold sm:mb-3 mb-5 text-gray-700'>Login</h1>
+                                    <h1 className='text-3xl font-semibold sm:mb-3 mb-5 text-gray-700 '>Login</h1>
                                     <h1 className='font-medium text-lg text-red-500 cursor-pointer hover:underline hover:text-red-600 mt-[-30px] mb-5' onClick={(() => setCounter(-410))}>Create an account</h1>
                                     <input type="text" placeholder='Phone number' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto' />
                                     <input type="text" placeholder='Password' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto' />

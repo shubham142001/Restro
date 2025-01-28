@@ -14,13 +14,13 @@ function Steps() {
   ]
   return (
     <>
-      <div className='flex justify-evenly items-center pb-10 md:pl-12 lg:pl-0 sm:pl-10'>
+      <div className='sm:flex sm:justify-evenly items-center pb-10 md:pl-12 lg:pl-0 sm:pl-10 grid grid-cols-2 pl-14'>
         {
           data.map((data) => (
-            <div id={data.id} className=' w-[230px] flex flex-col justify-center gap-5'>
-              <div className='rounded-full lg:h-[200px] lg:w-[200px] sm:h-[130px] sm:w-[130px] md:h-[150px] md:w-[150px] overflow-hidden'><img src={data.img} className='lg:w-[200px] lg:h-[200px] sm:w-[150px] sm:h-[150px] ' />
+            <div id={data.id} className=' sm:w-[230px] sm:flex flex-col justify-center gap-5 py-2 sm:py-0'>
+              <div className='rounded-full lg:h-[200px] lg:w-[200px] sm:h-[130px] sm:w-[130px] md:h-[150px] md:w-[150px] h-[120px] w-[120px] overflow-hidden'><img src={data.img} className='lg:w-[200px] lg:h-[200px] sm:w-[150px] sm:h-[150px] h-[120px] w-[120px]' />
               </div>
-              <h1 className='text-xl font-semibold text-black text-center pr-6'>{data.desc} </h1>
+              <h1 className='text-xl font-semibold text-black text-center sm:pr-6 pr-16'>{data.desc} </h1>
             </div>
           ))
         }

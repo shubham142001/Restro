@@ -111,22 +111,22 @@ function Navbar() {
             >
                 <ul className="flex flex-col px-5 py-2 space-y-4 items-center">
 
-                    <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 border-b-2 border-white">
-                        <input type="text" placeholder='Search Your Food' className='rounded-2xl p-1 w-[350px] outline-none'/>
+                    <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2  border-white">
+                        <input type="text" placeholder='Search Your Food' className='rounded-2xl p-2 pl-5 w-[350px] outline-none'/>
                     </li>
 
                     <Link to="/">
-                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 border-b-2 border-white " onClick={() => setDown(false)}>
+                        <li className="hover:text-green-500 font-sans font-semibold flex items-center  gap-2 border-b-2 border-white justify-center w-[350px]" onClick={() => setDown(false)}>
                             <FaHome /> Home
                         </li>
                     </Link>
                     <Link to="/Menu">
-                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 border-b-2 border-white" onClick={() => setDown(false)}>
+                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 border-b-2 border-white justify-center w-[350px]" onClick={() => setDown(false)}>
                             <MdRestaurantMenu /> Menu
                         </li>
                     </Link>
                     <Link to="/Contactus1">
-                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2" onClick={() => setDown(false)}>
+                        <li className="hover:text-green-500 font-sans font-semibold flex items-center gap-2 justify-center w-[350px]" onClick={() => setDown(false)}>
                             <IoMdContacts /> Contact us
                         </li>
                     </Link>

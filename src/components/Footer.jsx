@@ -46,8 +46,8 @@ function Footer() {
                                 </li>
                             </ul>
                         </div>
-                        <div>
-                            <h2 class="mb-6 text-sm font-semibold dark:text-gray-900 uppercase text-white">Legal</h2>
+                        <div className='sm:block hidden'>
+                            <h2 class="mb-6 text-sm font-semibold dark:text-gray-900 uppercase text-white sm:block hidden">Legal</h2>
                             <ul class="text-white dark:text-gray-400 font-medium">
                                 <li class="mb-4">
                                     <a href="#" class="hover:underline">Privacy Policy</a>
@@ -60,8 +60,8 @@ function Footer() {
                                 </li>
                             </ul>
                         </div>
-                        <div>
-                            <h2 class="mb-6 text-sm font-semibold dark:text-gray-900 uppercase text-white">Download</h2>
+                        <div className='sm:block hidden'>
+                            <h2 class="mb-6 text-sm font-semibold dark:text-gray-900 uppercase text-white ">Download</h2>
                             <ul class="text-white dark:text-gray-400 font-medium">
                                 <li class="mb-4">
                                     <a href="#" class="hover:underline">iOS</a>
@@ -78,7 +78,7 @@ function Footer() {
                             </ul>
                         </div>
                     </div>
-                    <div class="px-4 py-6 dark:bg-gray-100 bg-gray-700 md:flex md:items-center md:justify-between">
+                    <div class="px-4 sm:py-6 py-2 dark:bg-gray-100 bg-gray-700 md:flex md:items-center md:justify-between">
                         <span class="text-sm text-white dark:text-gray-300 sm:text-center">© 2023 <a href="https://flowbite.com/">Flowbite™</a>. All Rights Reserved.
                         </span>
                         <div class="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">

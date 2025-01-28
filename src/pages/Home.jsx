@@ -18,6 +18,7 @@ function Home() {
             <Headings name="Most Popu" name1='lar foods' />
             <Popular />
             <Steps />
+            <Headings name="Lets Number" name1='To Speak' />
             <Counter />
         </div>
     )

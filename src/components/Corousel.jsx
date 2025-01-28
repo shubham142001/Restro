@@ -26,7 +26,7 @@ function Corousel() {
 
     return (
         <>
-            <div className='xl:h-[400px] xl:w-[430px] lg:h-[300px] lg:w-[330px] rounded-[50%] overflow-hidden lg:mt-5 md:h-[250px] md:w-[250px] md:mt-24 sm:w-[250px] sm:h-[230px] sm:mt-20 h-[130px] w-[130px] mt-3 ml-[-50px]'>
+            <div className='xl:h-[400px] xl:w-[430px] lg:h-[300px] lg:w-[330px] rounded-[50%] overflow-hidden lg:mt-5 md:h-[250px] md:w-[250px] md:mt-24 sm:w-[250px] sm:h-[230px] sm:mt-20 h-[130px] w-[130px] mt-3 ml-[-100px]'>
                 <Slider {...settings}>
                     {cart.map(cart => (
                         <img key={cart.id} src={cart.img} alt="" className='xl:h-[400px] xl:w-[450px] lg:h-[300px] lg:w-[330px] md:h-[230px] md:w-[250px] sm:w-[250px] sm:h-[230px]  h-[130px] w-[130px]' />

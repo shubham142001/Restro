@@ -54,9 +54,8 @@ function Navbar() {
             });
         } catch (error) {
             setTimeout(() => {
-                setLoader(false);
-                setIsOpen(false);
-            }, 3000);
+                
+            },3000);
             toast.error("❌ Login failed.", {
                 position: "top-left",
                 autoClose: 3000,
@@ -72,6 +71,7 @@ function Navbar() {
             setEmail("");
             setPassword("");
             setLoader(false);
+            setIsOpen(false);
         }
 
     };

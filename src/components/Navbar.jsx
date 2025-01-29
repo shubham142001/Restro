@@ -42,7 +42,6 @@ function Navbar() {
                 email,
                 password,
             });
-            setTimeout(() => {setIsOpen(false);}, 3000);
             toast.success("✅ Login successful!", {
                 position: "top-left",
                 autoClose: 3000,
@@ -54,7 +53,8 @@ function Navbar() {
                 theme: "light",
             });
         } catch (error) {
-            setTimeout(() => {setIsOpen(false);}, 3000);
+            setTimeout(() => {setLoader(true);}, 3000);
+            setIsOpen(false);
             toast.error("❌ Login failed.", {
                 position: "top-left",
                 autoClose: 3000,

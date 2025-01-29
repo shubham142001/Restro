@@ -35,16 +35,15 @@ function Navbar() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        useEffect(() => {
-            setLoader(true);
-        },[loader])
-        
+        setLoader(true);
+
         try {
             const response = await axios.post("http://192.168.0.109:8080/api/auth/login", {
                 email,
                 password,
             });
             setIsOpen(false);
+            setTimeout(() => {setLoader(false);}, 3000);
             toast.success("✅ Login successful!", {
                 position: "top-left",
                 autoClose: 3000,
@@ -69,9 +68,9 @@ function Navbar() {
             });
         }
         finally {
-            setLoader(false);
             setEmail("");
             setPassword("");
+            setLoader(false);
         }
 
     };

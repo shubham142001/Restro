@@ -53,8 +53,10 @@ function Navbar() {
                 theme: "light",
             });
         } catch (error) {
-            setTimeout(() => {setLoader(false);}, 3000);
-            setIsOpen(false);
+            setTimeout(() => {
+                setLoader(false);
+                setIsOpen(false);
+            }, 3000);
             toast.error("❌ Login failed.", {
                 position: "top-left",
                 autoClose: 3000,

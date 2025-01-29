@@ -35,8 +35,9 @@ function Navbar() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        setLoader(true);
-
+        setTimeout(() => {
+            setLoader(true);     
+        },3000);
         try {
             const response = await axios.post("http://192.168.0.109:8080/api/auth/login", {
                 email,
@@ -53,9 +54,6 @@ function Navbar() {
                 theme: "light",
             });
         } catch (error) {
-            setTimeout(() => {
-                
-            },3000);
             toast.error("❌ Login failed.", {
                 position: "top-left",
                 autoClose: 3000,

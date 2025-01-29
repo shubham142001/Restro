@@ -11,6 +11,7 @@ import { MdRestaurantMenu } from "react-icons/md";
 import { IoMdContacts } from "react-icons/io";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import axios from "axios";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,10 +19,29 @@ function Navbar() {
     const [count, setCount] = useState(0);
     const backgroundRef = useRef(null);
     const [counter, setCounter] = useState(0);
-    const [down, setDown] = useState(false); const { ref, inView } = useInView({
+    const [down, setDown] = useState(false); 
+    const { ref, inView } = useInView({
         triggerOnce: false, // Trigger the animation only once when it comes into view
         threshold: 0.1,    // Start animating when 10% of the component is visible
     });
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleLogin = async (e) => {
+        e.preventDefault(); 
+        try {
+            const response = await axios.post("http://192.168.0.109:8080/api/auth/login", {
+                email,
+                password,
+            });
+            alert(response.data);
+            setIsOpen(false);
+        } catch (error) {
+            alert("Login failed");
+        }
+    };
+
 
     useEffect(() => {
         backgroundRef.current.style.display = "none";
@@ -163,9 +183,9 @@ function Navbar() {
                                 <form action="" className='flex flex-col gap-6 md:w-[410px] sm:w-[410px] items-center w-[400px] h-[410px] '>
                                     <h1 className='text-3xl font-semibold sm:mb-3 mb-5 text-gray-700 '>Login</h1>
                                     <h1 className='font-medium text-lg text-red-500 cursor-pointer hover:underline hover:text-red-600 mt-[-30px] mb-5 sm:mb-0' onClick={(() => setCounter(-410))}>Create an account</h1>
-                                    <input type="text" placeholder='Phone number' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto sm:mb-0' />
-                                    <input type="text" placeholder='Password' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto sm:mb-0' />
-                                    <button type="submit" className="text-white sm:w-[300px] w-[350px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto ">Login</button>
+                                    <input type="text" placeholder='Phone number' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto sm:mb-0'  onChange={(e) => setEmail(e.target.value)} />
+                                    <input type="text" placeholder='Password' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto sm:mb-0'onChange={(e) => setPassword(e.target.value)} />
+                                    <button type="submit" className="text-white sm:w-[300px] w-[350px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto " onClick={handleLogin}>Login</button>
                                 </form>
                             </div>
                             <div className='mt-[-15px] sm:pl-16 md:pl-0  w-[400px] '>

@@ -14,10 +14,12 @@ import { useInView } from "react-intersection-observer";
 import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ThreeCircles } from "react-loader-spinner";
 
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [loader, setLoader] = useState(false);
     const [iconSize, setIconSize] = useState(40);
     const [count, setCount] = useState(0);
     const backgroundRef = useRef(null);
@@ -33,6 +35,7 @@ function Navbar() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        setLoader(true);
         try {
             const response = await axios.post("http://192.168.0.109:8080/api/auth/login", {
                 email,
@@ -62,6 +65,12 @@ function Navbar() {
                 theme: "light",
             });
         }
+        finally {
+            setLoader(false);
+            setEmail("");
+            setPassword("");
+        }
+
     };
 
 
@@ -205,9 +214,19 @@ function Navbar() {
                                 <form action="" className='flex flex-col gap-6 md:w-[410px] sm:w-[410px] items-center w-[400px] h-[410px] '>
                                     <h1 className='text-3xl font-semibold sm:mb-3 mb-5 text-gray-700 '>Login</h1>
                                     <h1 className='font-medium text-lg text-red-500 cursor-pointer hover:underline hover:text-red-600 mt-[-30px] mb-5 sm:mb-0' onClick={(() => setCounter(-410))}>Create an account</h1>
-                                    <input type="text" placeholder='Phone number' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto sm:mb-0' onChange={(e) => setEmail(e.target.value)} />
-                                    <input type="text" placeholder='Password' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto sm:mb-0' onChange={(e) => setPassword(e.target.value)} />
-                                    <button type="submit" className="text-white sm:w-[300px] w-[350px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto " onClick={handleLogin}>Login</button>
+                                    <input type="email" value={email} placeholder='Email' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto sm:mb-0' onChange={(e) => setEmail(e.target.value)} />
+                                    <input type="text" placeholder='Password' value={password} required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto sm:mb-0' onChange={(e) => setPassword(e.target.value)} />
+                                    <button type="submit" className="text-white sm:w-[300px] w-[350px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto " onClick={handleLogin} disabled={loader}>{loader ? (
+                                        <div className="flex justify-center items-center">
+                                            <ThreeCircles
+                                                visible={true}
+                                                height="30"
+                                                width="30"
+                                                color="#fff"
+                                                ariaLabel="three-circles-loading"
+                                            />
+                                        </div>
+                                    ) : "Login"}</button>
                                 </form>
                             </div>
                             <div className='mt-[-15px] sm:pl-16 md:pl-0  w-[400px] '>
@@ -245,7 +264,6 @@ function Navbar() {
                 pauseOnHover
                 theme="light"
             />
-
         </>
     )
 }

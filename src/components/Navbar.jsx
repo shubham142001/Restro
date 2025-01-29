@@ -35,9 +35,8 @@ function Navbar() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        setTimeout(() => {
-            setLoader(true);     
-        },3000);
+        setLoader(true);  
+        
         try {
             const response = await axios.post("http://192.168.0.109:8080/api/auth/login", {
                 email,

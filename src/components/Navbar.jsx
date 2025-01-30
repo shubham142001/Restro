@@ -25,6 +25,7 @@ function Navbar() {
     const backgroundRef = useRef(null);
     const [counter, setCounter] = useState(0);
     const [down, setDown] = useState(false);
+    const [userdata, setUserdata] = useState([]);
     const { ref, inView } = useInView({
         triggerOnce: false, // Trigger the animation only once when it comes into view
         threshold: 0.1,    // Start animating when 10% of the component is visible
@@ -35,13 +36,15 @@ function Navbar() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        setLoader(true);  
-        
+        setLoader(true);
+
         try {
             const response = await axios.post("http://192.168.0.109:8080/api/auth/login", {
                 email,
                 password,
             });
+            setUserdata([response.data]);
+            console.log(userdata);
             toast.success("✅ Login successful!", {
                 position: "top-left",
                 autoClose: 3000,
@@ -52,23 +55,68 @@ function Navbar() {
                 progress: undefined,
                 theme: "light",
             });
+            setIsOpen(false);
         } catch (error) {
-            toast.error("❌ Login failed.", {
-                position: "top-left",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            if (error.response) {
+                if (error.response.status === 404) {
+                    toast.info("ℹ️  New User! Please signup first", {
+                        position: "top-left",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                    setCounter(-410);
+                }
+                else if (error.response.status === 401) {
+                    toast.warn("⚠️ Please enter correct password", {
+                        position: "top-left",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                    setCounter(0);
+                }
+                else {
+                    toast.error("❌An error occurred.", {
+                        position: "top-left",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                    setCounter(-410); 
+                }
+            }
+            else {
+                toast.error("❌  Unable to connect to the server. Please check your internet or try again later.", {
+                    position: "top-left",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+                setCounter(-410); 
+            }
+
         }
         finally {
             setEmail("");
             setPassword("");
             setLoader(false);
-            setIsOpen(false);
         }
 
     };
@@ -235,11 +283,12 @@ function Navbar() {
                                     <h1 className='text-3xl font-semibold sm:mb-7 text-gray-700 mt-5 sm:mt-0 mb-9'>Sign Up</h1>
                                     <h1 className='font-medium text-lg text-red-500 cursor-pointer hover:underline hover:text-red-600 mt-[-30px] sm:mb-5 mb-7' onClick={(() => setCounter(0))}>Login to your Account</h1>
                                     <input type="text" placeholder='Name' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto' />
-                                    <input type="text" placeholder='Phone number' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto' />
+                                    <input type="text" placeholder='Email Id' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto' />
                                     <input type="text" placeholder='Password' required className='border h-[50px] sm:w-[300px] w-[350px] rounded-xl pl-4 outline-none bg-white m-auto' />
-                                    <div className='w-[350px] sm:w-[300px]'>
+                                    <div className='w-[350px] sm:w-[300px] flex'>
                                         <input type="text" placeholder='OTP' required className='border h-[40px] sm:w-[100px] w-[150px] rounded-xl pl-4 outline-none bg-white m-auto mr-5' />
                                         <button type="submit" className="text-white h-[40px] w-[90px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto ">Send OTP</button>
+                                        <div className='w-24 justify-start pl-3 flex items-center text-sm text-green-500'><h2 className='font-serif'>* otp sent</h2></div>
                                     </div>
                                     <button type="submit" className="text-white  sm:w-[300px] w-[350px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto ">SignUp</button>
                                 </form>

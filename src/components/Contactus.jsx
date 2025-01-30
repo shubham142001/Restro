@@ -11,10 +11,10 @@ function Contactus() {
     <div>
       <section className="bg-white select-none" ref={ref}>
         <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md lg:h-[800px] sm:py-16 md:px-6">
-          <motion.h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white"
+          <motion.h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900"
             initial={{ opacity: 0, translateY: 20 }} 
             animate={inView ? { opacity: 1, translateY: 0 } : {}} 
-            transition={{ delay: 0.5, duration: 0.9, ease: "easeInOut" }}>
+            transition={{ delay: 0.9, duration: 0.9, ease: "easeInOut" }}>
             Contact Us
           </motion.h2>
           <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">

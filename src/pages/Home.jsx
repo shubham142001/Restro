@@ -6,7 +6,6 @@ import Popular from "../components/Popular";
 import Steps from "../components/Steps";
 import Counter from "../components/Counter";
 import { Loader } from "../components/Loader";
-import Login from "../components/Axios";
 
 function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,7 +35,6 @@ function Home() {
           <Steps />
           <Headings name="Lets Number" name1="To Speak" />
           <Counter />
-          <Login />
         </div>
       )}
     </div>

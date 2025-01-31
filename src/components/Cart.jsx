@@ -4,13 +4,19 @@ import { RiSubtractLine } from "react-icons/ri";
 import { IoMdAdd } from "react-icons/io";
 import { FaIndianRupeeSign } from "react-icons/fa6";
 import { MdDeleteForever } from "react-icons/md";
-
+import { useDispatch } from 'react-redux';
+import { quantity } from '../redux/slices/cartSlice';
 
 function Cart() {
   const [count, setCount] = useState(0)
-
+  const dispatch = useDispatch();
+ 
   const increment = () => {
-    setCount(prevCount => prevCount + 1);
+    setCount(prevCount => {
+      const newCount = prevCount + 1;
+      dispatch(quantity(newCount)); // Dispatch the updated count
+      return newCount;
+    });
   };
 
   const decrement = () => {

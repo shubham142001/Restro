@@ -181,7 +181,7 @@ function Navbar() {
                         <IoSearch size={30} className='hover:cursor-pointer transition-all duration-500 ml-24' />
                     </motion.div>
 
-                    <Link to="/CartPage"><motion.div className='text-black hover:text-green-500 w-10 flex justify-center flex-shrink-0 ' initial={{ opacity: 0, translateY: -50 }}
+                    <Link to="/CartPage"><motion.div className='text-blue-500 hover:text-green-500 w-10 flex justify-center flex-shrink-0 ' initial={{ opacity: 0, translateY: -50 }}
                         animate={inView ? { opacity: 1, translateY: 0 } : {}}
                         transition={{ delay: 0.5, duration: 0.5, ease: "easeInOut" }}>
                         <FaShoppingCart size={25} className='hover:cursor-pointer transition-all duration-500 ' />
@@ -192,7 +192,7 @@ function Navbar() {
                     <div className=' hover:cursor-pointer flex-shrink-0 justify-center items-center flex' onMouseEnter={() => setIconSize(50)}
                         onMouseLeave={() => setIconSize(40)}
                     >
-                        <div className='flex gap-1 items-center text-black hover:text-green-500 '>
+                        <div className='flex gap-1 items-center text-blue-500 hover:text-green-500 '>
 
                             <motion.div onClick={handleOpen} className='flex md:gap-1' initial={{ opacity: 0, translateX: 50 }}
                                 animate={inView ? { opacity: 1, translateX: 0 } : {}}
@@ -288,7 +288,7 @@ function Navbar() {
                                     <div className='w-[350px] sm:w-[300px] flex'>
                                         <input type="text" placeholder='OTP' required className='border h-[40px] sm:w-[100px] w-[150px] rounded-xl pl-4 outline-none bg-white m-auto mr-5' />
                                         <button type="submit" className="text-white h-[40px] w-[90px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto ">Send OTP</button>
-                                        <div className='w-24 justify-start pl-3 flex items-center text-sm text-green-500'><h2 className='font-serif'>* otp sent</h2></div>
+                                        <div className='w-24 justify-start pl-3 flex items-center text-sm text-green-500'><small className='font-serif'>* otp sent</small></div>
                                     </div>
                                     <button type="submit" className="text-white  sm:w-[300px] w-[350px] bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-3 m-auto ">SignUp</button>
                                 </form>
